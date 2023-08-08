@@ -2,4 +2,3 @@
 using app.Programs.BasicCalculator;
 
 BasicCalculator basicCalculator = new();
-basicCalculator.StartProgram();

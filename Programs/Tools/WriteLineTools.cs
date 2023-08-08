@@ -28,6 +28,11 @@ public class WriteLineTools
         Console.WriteLine("\x1b[1m" + log + "\x1b[0m");
     }
 
+    public static void LogUnderline(string log)
+    {
+        Console.WriteLine("\x1b[4m" + log + "\x1b[0m");
+    }
+
     // Special logs
     public static void LogQuestion(string question)
     {

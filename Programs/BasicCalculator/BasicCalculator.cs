@@ -7,32 +7,34 @@ public class BasicCalculator
     public BasicCalculator()
     {
         WriteLineTools.LogInfo("Basic calculator instantiated!");
+        StartProgram();
     }
 
     public void StartProgram()
     {
         WriteLineTools.LogInfo("Basic calculator started!");
         WriteLineTools.LogBold("Select the mathematical operation:");
-
-
-        SumOp();
+        SelectMathOps();
     }
-    private void SumOp()
+
+    private void SelectMathOps()
     {
-        WriteLineTools.LogQuestion("How many number you want to sum?");
-        int numValues = ReadLineTools.GetNumber();
-        int sum = 0;
-        for (int i = 1; i <= numValues; i++)
+        Dictionary<string, string> dicMathOps = new() { { "sum", "SumOp" }, { "multiplication", "MultiplicationOp" } };
+        for (int i = 0; i < dicMathOps.Count(); i++)
         {
-            WriteLineTools.LogBold("Digit the value n°" + i + ":");
-            sum += ReadLineTools.GetNumber();
+            WriteLineTools.LogUnderline((i + 1) + " - " + dicMathOps.ElementAt(i).Key);
         }
 
-        WriteLineTools.LogBold("The result is: " + sum);
-    }
+        WriteLineTools.LogBold("\nSelect the operation (enter the corresponding number):");
+        int codeOp = ReadLineTools.GetNumber();
+        while (codeOp < 1 || codeOp > dicMathOps.Count)
+        {
+            WriteLineTools.LogError("The selected number does not correspond to any operation.");
+            codeOp = ReadLineTools.GetNumber();
+        }
 
-    private void MultiplicationOp()
-    {
-        Console.WriteLine("Mulit op");
+        WriteLineTools.LogSucces("The selected operation is: " + dicMathOps.ElementAt(codeOp - 1).Key);
+
+        typeof(MathematicalOps).GetMethod(dicMathOps.ElementAt(codeOp - 1).Value).Invoke(null, null);
     }
 }
