@@ -17,9 +17,20 @@ public class MathematicalOps
 
         WriteLineTools.LogBold("The result is: " + sum);
     }
-
-    private void MultiplicationOp()
+    public void SubtractionOp()
     {
-        Console.WriteLine("Mulit op");
+        Console.WriteLine("SubtractionOp");
+    }
+
+    public void MultiplicationOp()
+    {
+        Console.WriteLine("MultiplicationOp");
+    }
+
+    public void DivisionOp()
+    {
+        Console.WriteLine("DivisionOp");
     }
 }
+
+

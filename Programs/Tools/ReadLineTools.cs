@@ -23,4 +23,18 @@ public class ReadLineTools
 
         return Int32.Parse(readLine);
     }
+
+    public static bool GetBoolean(string trueStr, string falseStr, bool defaultAnswer)
+    {
+        string? readLine = Console.ReadLine();
+        readLine = String.IsNullOrEmpty(readLine) ? defaultAnswer ? trueStr : falseStr : readLine;
+
+        while (!String.Equals(readLine.ToLower(), trueStr.ToLower()) && !String.Equals(readLine.ToLower(), falseStr.ToLower()))
+        {
+            WriteLineTools.LogError("The answer must be either " + trueStr.ToUpper() + " or " + falseStr.ToUpper() + ", please try again");
+            readLine = Console.ReadLine();
+        }
+
+        return String.Equals(readLine.ToLower(), trueStr.ToLower());
+    }
 }

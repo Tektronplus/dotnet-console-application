@@ -9,7 +9,7 @@ public class WriteLineTools
         Console.ResetColor();
     }
 
-    public static void LogSucces(string success)
+    public static void LogSuccess(string success)
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("\x1b[1mSuccess: " + success + "\x1b[0m");
@@ -39,3 +39,4 @@ public class WriteLineTools
         Console.WriteLine("\x1b[1m\x1b[3m" + question + "\x1b[0m");
     }
 }
+
