@@ -29,12 +29,12 @@ public class ReadLineTools
         string? readLine = Console.ReadLine();
         readLine = String.IsNullOrEmpty(readLine) ? defaultAnswer ? trueStr : falseStr : readLine;
 
-        while (!String.Equals(readLine.ToLower(), trueStr.ToLower()) && !String.Equals(readLine.ToLower(), falseStr.ToLower()))
+        while (!String.Equals(readLine, trueStr, StringComparison.OrdinalIgnoreCase) && !String.Equals(readLine, falseStr, StringComparison.OrdinalIgnoreCase))
         {
             WriteLineTools.LogError("The answer must be either " + trueStr.ToUpper() + " or " + falseStr.ToUpper() + ", please try again");
             readLine = Console.ReadLine();
         }
 
-        return String.Equals(readLine.ToLower(), trueStr.ToLower());
+        return String.Equals(readLine, trueStr, StringComparison.OrdinalIgnoreCase);
     }
 }
